@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Auth\VerificationCodeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,6 +22,12 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+// Route untuk verifikasi email (tanpa middleware auth, karena user belum login)
+Route::get('/verify-email', [VerificationCodeController::class, 'create'])
+    ->name('verification.notice');
+Route::post('/verify-email', [VerificationCodeController::class, 'store'])
+    ->name('verification.verify');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
