@@ -17,6 +17,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/murid', function () { return view('murid.index'); })->name('murid.index');
+Route::get('/murid/tambah', function () { return view('murid.create'); })->name('murid.create');
+
 use App\Http\Controllers\MuridController;
 
 Route::resource('murid', MuridController::class);

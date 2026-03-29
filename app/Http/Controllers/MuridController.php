@@ -11,10 +11,13 @@ class MuridController extends Controller
      * Menampilkan daftar semua murid.
      */
     public function index()
-    {
-         $murids = Murid::all();
+{
+    // Mengambil semua data dari database
+    $murids = \App\Models\Murid::all(); 
+
+    // Mengirim data ke file resources/views/murid/index.blade.php
     return view('murid.index', compact('murids'));
-    }
+}
 
     /**
      * Menampilkan form untuk menambah murid baru.
