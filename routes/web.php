@@ -13,13 +13,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 use App\Http\Controllers\MuridController;
 
 Route::resource('murid', MuridController::class);
+
+use App\Http\Controllers\LandingPageController;
+
+Route::get('/', [LandingPageController::class, 'index'])->name('landing');
+
+Route::get('/login', function () {
+    return redirect('/');
+})->name('login');
 
 use App\Http\Controllers\PaketController;
 
