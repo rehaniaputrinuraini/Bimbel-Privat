@@ -16,7 +16,7 @@
     <nav class="navbar">
         <div class="container">
             <div class="logo">
-                <img src="{{ asset('images/galeri/foto_logo.png') }}" alt="Logo Bimbel Privat" class="h-12 w-auto">
+                <img src="{{ asset('images/foto_logo.png') }}" alt="Logo Bimbel Privat" class="h-12 w-auto">
             </div>
             <ul class="nav-links">
                 <li><a href="#beranda">Beranda</a></li>
