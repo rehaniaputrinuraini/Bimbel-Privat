@@ -7,21 +7,20 @@ use Illuminate\Database\Eloquent\Model;
 class Murid extends Model
 {
     protected $table = 'ms_murid';
-    // Gunakan 'id' sebagai primary key sesuai yang terlihat di phpMyAdmin kamu
-    protected $primaryKey = 'id'; 
+    // Primary key berubah kembali menjadi id_murid sesuai tabel baru
+    protected $primaryKey = 'id_murid'; 
     public $timestamps = true;
 
-    // Daftar ini HARUS sama dengan kolom di phpMyAdmin kamu
     protected $fillable = [
-        'nama_lengkap',
+        'nama_lengkap_murid',
         'kelas',
         'asal_sekolah',
-        'alamat',
-        'no_hp_siswa',
+        'alamat_murid',
+        'no_hp_murid',
         'nama_orang_tua',
-        'no_hp_ortu',
+        'no_hp_orang_tua',
         'paket_awal',
         'pilihan_paket',
-        'tahun_masuk'
+        'tahun_masuk',
     ];
 }
