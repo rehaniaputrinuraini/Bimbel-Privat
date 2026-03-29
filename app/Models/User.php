@@ -10,21 +10,14 @@ class User extends Authenticatable
     use Notifiable;
 
     protected $table = 'ms_user';
-    protected $primaryKey = 'id_user';
+    protected $primaryKey = 'id_user';   // ← sangat penting!
+    public $incrementing = true;
 
     protected $fillable = [
-        'username',
-        'email',
-        'password',
-        'peran',
-        'status',
+        'username', 'email', 'password', 'peran', 'status',
     ];
 
     protected $hidden = [
-        'password',
-    ];
-
-    protected $casts = [
-        'status' => 'integer',
+        'password', 'remember_token',
     ];
 }

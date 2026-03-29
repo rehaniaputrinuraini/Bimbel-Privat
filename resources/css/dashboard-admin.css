@@ -1,0 +1,167 @@
+/* --- DASHBOARD SPECIFIC STYLE --- */
+:root {
+    --purple-main: #6F2DA8; /* Samakan dengan Company Profile */
+    --purple-light: #E0CFFC;
+    --white: #FFFFFF;
+    --bg-main: #FDF5FF;
+    --shadow: 0 10px 30px rgba(111, 45, 168, 0.08);
+}
+
+/* --- LAYOUT UTAMA --- */
+.dashboard-wrapper {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* --- SIDEBAR --- */
+.sidebar {
+    width: 260px;
+    background-color: var(--purple-main);
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+    box-shadow: 4px 0 15px rgba(0,0,0,0.1);
+}
+
+.profile-sidebar {
+    padding: 40px 20px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.avatar-box {
+    width: 80px;
+    height: 80px;
+    background: var(--white);
+    border-radius: 50%;
+    margin: 0 auto 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--purple-main);
+    font-size: 2rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.sidebar-nav {
+    flex: 1;
+    padding: 20px 15px;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px 20px;
+    border-radius: 12px;
+    margin-bottom: 8px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.nav-item.active, .nav-item:hover {
+    background-color: rgba(255,255,255,0.2);
+}
+
+/* --- MAIN CONTENT --- */
+.main-content {
+    flex: 1;
+    background-color: var(--bg-main);
+    display: flex;
+    flex-direction: column;
+}
+
+.header-dashboard {
+    background: var(--white);
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+}
+
+.content-body {
+    padding: 40px;
+}
+
+/* --- STATS CARDS (VERSI IKON POJOK) --- */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.stat-card {
+    background: var(--white);
+    padding: 25px;
+    border-radius: 20px;
+    position: relative;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 150px;
+    transition: transform 0.3s ease;
+}
+
+.stat-card:hover { transform: translateY(-5px); }
+
+.stat-icon {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-size: 1.2rem;
+}
+
+.stat-value {
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-top: 20px;
+    color: #333;
+}
+
+.stat-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* --- RINCIAN TRANSAKSI --- */
+.transaction-box {
+    background: var(--white);
+    padding: 35px;
+    border-radius: 30px;
+    box-shadow: var(--shadow);
+}
+
+.transaction-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.transaction-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 25px;
+    border-radius: 15px;
+    color: var(--white);
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.bg-success { background-color: #58A85C; }
+.bg-danger { background-color: #D3514C; }

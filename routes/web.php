@@ -3,6 +3,8 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\VerificationCodeController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SuperAdmin\DashboardController as SuperAdminDashboard;
+use App\Http\Controllers\Admin\DashboardController as AdminDashboard;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,3 +37,13 @@ Route::middleware('auth')->group(function () {
 
 // 5. MENGAKTIFKAN FITUR LOGIN & REGISTER (WAJIB ADA)
 require __DIR__.'/auth.php';
+
+
+Route::middleware(['auth'])->group(function () {
+    Route::middleware('role:superadmin')->prefix('superadmin')->group(function () {
+        Route::get('/dashboard', [SuperAdminDashboard::class, 'index'])->name('superadmin.dashboard');
+    });
+    Route::middleware('role:admin')->prefix('admin')->group(function () {
+        Route::get('/dashboard', [AdminDashboard::class, 'index'])->name('admin.dashboard');
+    });
+});
