@@ -22,46 +22,37 @@
 
     @foreach($stats as $s)
     <div class="stat-box" style="background: white; height: 180px; border-radius: 20px; position: relative; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; box-shadow: 0 4px 15px rgba(0,0,0,0.08); padding: 25px;">
-        
         <div style="position: absolute; top: 15px; left: 15px; background: {{ $s['bg'] }}; width: 50px; height: 50px; border-radius: 10px; display: flex; align-items: center; justify-content: center;">
             <img src="{{ asset('images/' . $s['icon']) }}" style="width: {{ $s['size'] }}; height: {{ $s['size'] }}; object-fit: contain;">
         </div>
-
         <div style="height: 50px; display: flex; align-items: center; justify-content: center; width: 100%;">
-            <h3 style="font-size: {{ str_contains($s['val'], 'Rp') ? '22px' : '38px' }}; font-weight: 700; color: #111827; margin: 0; line-height: 1; text-align: center;">
-                {{ $s['val'] }}
-            </h3>
+            <h3 style="font-size: {{ str_contains($s['val'], 'Rp') ? '22px' : '38px' }}; font-weight: 700; color: #111827; margin: 0; line-height: 1;">{{ $s['val'] }}</h3>
         </div>
-
         <div style="height: 25px; display: flex; align-items: center; justify-content: center; width: 100%; margin-top: 5px;">
-            <p style="color: #6B7280; font-size: 13px; font-weight: 500; margin: 0; white-space: nowrap; text-align: center;">
-                {{ $s['title'] }}
-            </p>
+            <p style="color: #6B7280; font-size: 13px; font-weight: 500; margin: 0;">{{ $s['title'] }}</p>
         </div>
     </div>
     @endforeach
 </div>
 
 <div class="finance-card" style="background: white; border-radius: 20px; padding: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.08);">
-    
     <div style="display: flex; justify-content: space-between; align-items: center; background-color: #F3E8FF; padding: 15px 25px; border-radius: 15px; margin-bottom: 20px;">
         <h2 style="font-size: 18px; font-weight: 700; color: #111827; margin: 0;">Rincian Keuangan Terakhir</h2>
         <a href="#" style="color: #4F46E5; text-decoration: none; font-weight: 700; font-size: 14px;">Lihat Semua</a>
     </div>
 
-    <div class="fin-item" style="display: flex; justify-content: space-between; align-items: center; padding: 15px 25px; background: #60A060; color: white; border-radius: 12px; margin-bottom: 12px; font-weight: 600; font-size: 14px;">
-        <span>Pembayaran Murid SD</span>
-        <span style="color: white; padding: 8px 18px; border-radius: 8px; font-size: 14px;">Rp. 5.000.000</span>
+    <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 20px; background: #60A060; color: black; border-radius: 12px; margin-bottom: 10px;">
+        <span style="font-weight: 600;">Pembayaran Murid SD</span>
+        <span style="padding: 8px 15px; border-radius: 8px; font-weight: 700; color: white;">Rp. 5.000.000</span>
     </div>
 
-    <div class="fin-item" style="display: flex; justify-content: space-between; align-items: center; padding: 15px 25px; background: #D74E4E; color: white; border-radius: 12px; margin-bottom: 12px; font-weight: 600; font-size: 14px;">
-        <span>Bayar WiFi</span>
-        <span style=" color: white; padding: 8px 18px; border-radius: 8px; font-size: 14px;">Rp. 100.000</span>
+    <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 20px; background: #D74E4E; color: black; border-radius: 12px; margin-bottom: 10px;">
+        <span style="font-weight: 600;">Bayar WiFi</span>
+        <span style="padding: 8px 15px; border-radius: 8px; font-weight: 700; color: white;">Rp. 100.000</span>
     </div>
-
-    <div class="fin-item" style="display: flex; justify-content: space-between; align-items: center; padding: 15px 25px; background: #60A060; color: white; border-radius: 12px; margin-bottom: 12px; font-weight: 600; font-size: 14px;">
-        <span>Pembayaran Murid SMA</span>
-        <span style="color: white; padding: 8px 18px; border-radius: 8px; font-size: 14px;">Rp. 4.000.000</span>
+     <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 20px; background: #60A060; color: black; border-radius: 12px; margin-bottom: 10px;">
+        <span style="font-weight: 600;">Pembayaran Murid SMA</span>
+        <span style="padding: 8px 15px; border-radius: 8px; font-weight: 700; color: white;">Rp. 5.000.000</span>
     </div>
 </div>
 @endsection
