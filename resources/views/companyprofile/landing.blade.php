@@ -16,7 +16,7 @@
     <nav class="navbar">
         <div class="container">
             <div class="logo">
-                <img src="{{ asset('images/logo.png') }}" alt="Bimbel Privat Logo"> <span>Bimbel Privat</span>
+                <img src="{{ asset('images/galeri/foto_logo.png') }}" alt="Logo Bimbel Privat" class="h-12 w-auto">
             </div>
             <ul class="nav-links">
                 <li><a href="#beranda">Beranda</a></li>
@@ -25,7 +25,10 @@
                 <li><a href="#galeri">Galeri</a></li>
                 <li><a href="#kontak">Kontak</a></li>
             </ul>
-            <button class="btn-login">LOGIN</button>
+            <a href="{{ route('login') }}">
+    <button class="btn-login">LOGIN</button>
+</a>
+        
         </div>
     </nav>
 
