@@ -71,3 +71,29 @@ body { background-color: #F8F9FA; display: flex; flex-direction: column; height:
     font-size: 13px; 
     white-space: nowrap; 
 }
+
+.content-card {
+    background: #fff;
+    border-radius: 15px;
+    padding: 40px;
+    border: 1px solid #D1D5DB;
+    /* Pastikan bagian ini seperti di bawah: */
+    height: auto;          /* Mengikuti isi konten */
+    min-height: 100%;      /* Minimal setinggi layar */
+    overflow: visible;     /* Agar konten di dalamnya tidak terpotong */
+    margin-bottom: 50px;   /* Jarak aman di bawah agar tombol tidak mepet */
+}
+
+.main-content {
+    flex: 1;
+    padding: 30px;
+    background-color: #F9FAFB;
+    /* Tambahkan ini: */
+    height: 100vh;         /* Tinggi sesuai layar */
+    overflow-y: auto;      /* Munculkan scrollbar hanya jika konten panjang */
+}
+
+html, body {
+    height: auto !important;
+    overflow: auto !important;
+}

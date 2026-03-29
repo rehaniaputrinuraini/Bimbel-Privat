@@ -11,13 +11,10 @@ class MuridController extends Controller
      * Menampilkan daftar semua murid.
      */
     public function index()
-{
-    // Mengambil semua data dari database
-    $murids = \App\Models\Murid::all(); 
-
-    // Mengirim data ke file resources/views/murid/index.blade.php
-    return view('murid.index', compact('murids'));
-}
+    {
+        $murids = Murid::all(); 
+        return view('murid.index', compact('murids'));
+    }
 
     /**
      * Menampilkan form untuk menambah murid baru.
@@ -32,22 +29,21 @@ class MuridController extends Controller
      */
     public function store(Request $request)
     {
+        // Validasi disesuaikan dengan atribut 'name' di form Blade kamu
         $request->validate([
-            'nama_lengkap_murid' => 'required|string|max:35',
-            'kelas' => 'nullable|string|max:10',
-            'asal_sekolah' => 'nullable|string|max:35',
-            'alamat_murid' => 'nullable|string',
-            'no_hp_murid' => 'nullable|string|max:15',
-            'nama_orang_tua' => 'nullable|string|max:35',
-            'no_hp_orang_tua' => 'nullable|string|max:15',
-            'paket_awal' => 'nullable|numeric',
-            'pilihan_paket' => 'nullable|in:SD,SMP,SMA',
-            'tahun_masuk' => 'nullable|digits:4|integer|min:1900|max:' . date('Y'),
-            'status_pembayaran' => 'nullable|in:lunas,belum,tunggak,uang_muka',
-            'total_piutang' => 'nullable|numeric',
-            'total_uang_muka' => 'nullable|numeric',
+            'nama_lengkap'   => 'required|string|max:255',
+            'kelas'          => 'nullable|string|max:50',
+            'asal_sekolah'   => 'nullable|string|max:255',
+            'alamat'         => 'nullable|string',
+            'no_hp_siswa'    => 'nullable|string|max:20',
+            'paket_awal'     => 'nullable|string|max:100',
+            'nama_orang_tua' => 'nullable|string|max:255',
+            'pilihan_paket'  => 'nullable|string|max:100',
+            'no_hp_ortu'     => 'nullable|string|max:20',
+            'tahun_masuk'    => 'nullable|digits:4',
         ]);
 
+        // Simpan semua data yang dikirim dari form
         Murid::create($request->all());
 
         return redirect()->route('murid.index')
@@ -55,19 +51,11 @@ class MuridController extends Controller
     }
 
     /**
-     * Menampilkan detail satu murid.
-     */
-    public function show($id)
-    {
-        $murid = Murid::findOrFail($id);
-        return view('murid.show', compact('murid'));
-    }
-
-    /**
      * Menampilkan form untuk mengedit data murid.
      */
     public function edit($id)
     {
+        // Menggunakan findOrFail agar jika ID tidak ketemu muncul error 404
         $murid = Murid::findOrFail($id);
         return view('murid.edit', compact('murid'));
     }
@@ -78,22 +66,21 @@ class MuridController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'nama_lengkap_murid' => 'required|string|max:35',
-            'kelas' => 'nullable|string|max:10',
-            'asal_sekolah' => 'nullable|string|max:35',
-            'alamat_murid' => 'nullable|string',
-            'no_hp_murid' => 'nullable|string|max:15',
-            'nama_orang_tua' => 'nullable|string|max:35',
-            'no_hp_orang_tua' => 'nullable|string|max:15',
-            'paket_awal' => 'nullable|numeric',
-            'pilihan_paket' => 'nullable|in:SD,SMP,SMA',
-            'tahun_masuk' => 'nullable|digits:4|integer|min:1900|max:' . date('Y'),
-            'status_pembayaran' => 'nullable|in:lunas,belum,tunggak,uang_muka',
-            'total_piutang' => 'nullable|numeric',
-            'total_uang_muka' => 'nullable|numeric',
+            'nama_lengkap'   => 'required|string|max:255',
+            'kelas'          => 'nullable|string|max:50',
+            'asal_sekolah'   => 'nullable|string|max:255',
+            'alamat'         => 'nullable|string',
+            'no_hp_siswa'    => 'nullable|string|max:20',
+            'paket_awal'     => 'nullable|string|max:100',
+            'nama_orang_tua' => 'nullable|string|max:255',
+            'pilihan_paket'  => 'nullable|string|max:100',
+            'no_hp_ortu'     => 'nullable|string|max:20',
+            'tahun_masuk'    => 'nullable|digits:4',
         ]);
 
         $murid = Murid::findOrFail($id);
+        
+        // Melakukan update data berdasarkan input baru
         $murid->update($request->all());
 
         return redirect()->route('murid.index')
