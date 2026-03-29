@@ -29,6 +29,15 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
+        // LOGIKA REDIRECT BERDASARKAN PERAN USER
+        $user = Auth::user();
+
+        if ($user->peran === 'superadmin') {
+            // Rehania akan lari ke sini
+            return redirect()->route('superadmin.dashboard');
+        }
+
+        // Rahmanda (Admin) atau peran lain akan lari ke HOME default (/dashboard)
         return redirect()->intended(RouteServiceProvider::HOME);
     }
 

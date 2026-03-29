@@ -11,6 +11,16 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 */
 
+// Route untuk Admin (Rahmanda)
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+// Route untuk SuperAdmin (Rehania)
+Route::get('/superadmin/dashboard', function () {
+    return view('superadmin.dashboard');
+})->middleware(['auth', 'verified'])->name('superadmin.dashboard');
+
 // 1. Halaman Utama
 Route::get('/', function () {
     return view('companyprofile.landing'); 
@@ -53,6 +63,10 @@ Route::middleware('auth')->group(function () {
 Route::get('/harga-paket/tambah', function () {
     return view('harga_paket_tambah');
 })->name('harga_paket.create');
+
+Route::get('/superadmin/dashboard', function () {
+    return view('superadmin.dashboard');
+})->name('superadmin.dashboard')->middleware(['auth']);
 
 }); 
 
