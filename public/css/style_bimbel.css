@@ -92,8 +92,3 @@ body { background-color: #F8F9FA; display: flex; flex-direction: column; height:
     height: 100vh;         /* Tinggi sesuai layar */
     overflow-y: auto;      /* Munculkan scrollbar hanya jika konten panjang */
 }
-
-html, body {
-    height: auto !important;
-    overflow: auto !important;
-}
